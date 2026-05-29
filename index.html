@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6eef8">
+    <meta name="description" content="Moon Bra Fit Helper: 一个温和的内衣尺码与试穿辅助工具。">
+    <title>Moon Bra Fit Helper</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-mark" aria-hidden="true">
+        <span></span>
+      </div>
+      <div>
+        <p class="eyebrow">一个温和的内衣尺码与试穿辅助工具。</p>
+        <h1>Moon Bra Fit Helper</h1>
+        <p class="tagline">Not a verdict. A fitting starting point.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="privacy-strip" aria-label="本地数据说明">
+        <strong>本地优先</strong>
+        <span>无登录、无上传、无云同步、无服务端存储。记录只保存在当前浏览器/设备中；JSON 导出是完整备份，CSV 导出适合表格查看。</span>
+      </section>
+
+      <nav class="tabs" aria-label="主要页面">
+        <button class="tab is-active" type="button" data-view-target="measure">测量</button>
+        <button class="tab" type="button" data-view-target="results">结果</button>
+        <button class="tab" type="button" data-view-target="issues">试穿问题</button>
+        <button class="tab" type="button" data-view-target="records">记录</button>
+      </nav>
+
+      <section id="measure" class="view is-active" data-view="measure">
+        <form id="measurement-form" class="form-grid">
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>基础测量</h2>
+              <p>单位为 cm。不需要追求完美精度，同一天内用相近方式测量即可。</p>
+            </div>
+
+            <div class="fields two-col">
+              <label>
+                <span>日期</span>
+                <input id="date" name="date" type="date" required>
+              </label>
+              <label>
+                <span>体重（可选）</span>
+                <input id="weight" name="weight" type="number" inputmode="decimal" min="0" step="0.1" placeholder="例如 62.5">
+              </label>
+              <label>
+                <span>紧下胸围</span>
+                <input id="tightUnderbust" name="tightUnderbust" type="number" inputmode="decimal" min="40" max="160" step="0.1" required>
+              </label>
+              <label>
+                <span>舒适下胸围</span>
+                <input id="snugUnderbust" name="snugUnderbust" type="number" inputmode="decimal" min="40" max="160" step="0.1" required>
+              </label>
+              <label>
+                <span>宽松下胸围</span>
+                <input id="looseUnderbust" name="looseUnderbust" type="number" inputmode="decimal" min="40" max="170" step="0.1" required>
+              </label>
+              <label>
+                <span>站立上胸围</span>
+                <input id="standingBust" name="standingBust" type="number" inputmode="decimal" min="40" max="190" step="0.1" required>
+              </label>
+              <label>
+                <span>前倾上胸围</span>
+                <input id="leaningBust" name="leaningBust" type="number" inputmode="decimal" min="40" max="210" step="0.1" required>
+              </label>
+              <label>
+                <span>躺下上胸围</span>
+                <input id="lyingBust" name="lyingBust" type="number" inputmode="decimal" min="40" max="190" step="0.1" required>
+              </label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>横向半周长</h2>
+              <p>横向半周长用于辅助判断乳房底盘宽度、左右差异和杯型方向，不是身体评价。</p>
+            </div>
+            <div class="help-box">
+              <p>测量思路：从靠近胸骨的内侧开始，沿乳房自然曲面轻轻横向量到靠近腋下的外侧。贴合表面即可，不需要压迫组织。</p>
+              <p>如果这个测量让你不舒服，可以留空；结果会继续生成，只是置信度会更保守。</p>
+            </div>
+            <div class="fields two-col">
+              <label>
+                <span>左侧乳房横向半周长（可选）</span>
+                <input id="leftHalfArc" name="leftHalfArc" type="number" inputmode="decimal" min="0" max="80" step="0.1">
+              </label>
+              <label>
+                <span>右侧乳房横向半周长（可选）</span>
+                <input id="rightHalfArc" name="rightHalfArc" type="number" inputmode="decimal" min="0" max="80" step="0.1">
+              </label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>补充记录</h2>
+              <p>这些内容只用于帮助你回看试穿体验。</p>
+            </div>
+            <div class="fields">
+              <label>
+                <span>HRT 阶段 / 备注（可选）</span>
+                <input id="hrtNote" name="hrtNote" type="text" maxlength="120" placeholder="例如：第 8 个月，或留空">
+              </label>
+              <label>
+                <span>最近试过的内衣（可选）</span>
+                <input id="currentBra" name="currentBra" type="text" maxlength="120" placeholder="品牌、尺码、款式都可以">
+              </label>
+              <label>
+                <span>试穿备注（可选）</span>
+                <textarea id="fitNotes" name="fitNotes" rows="4" maxlength="700" placeholder="哪里舒适、哪里需要观察、是否有压迫感等"></textarea>
+              </label>
+              <label>
+                <span>当日身体状态 / 心情备注（可选）</span>
+                <textarea id="moodNote" name="moodNote" rows="3" maxlength="500" placeholder="例如：今天比较敏感，想优先看柔软款"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="actions-panel">
+            <div class="button-row">
+              <button class="primary-button" type="submit">生成试穿起点</button>
+              <button class="ghost-button" id="reset-form" type="button">清空表单</button>
+            </div>
+            <p id="form-message" class="form-message" role="status"></p>
+          </section>
+        </form>
+      </section>
+
+      <section id="results" class="view" data-view="results">
+        <div id="empty-result" class="empty-state">
+          <h2>还没有生成结果</h2>
+          <p>填写测量数据后，这里会显示试穿起点、姊妹尺码、杯型方向和不确定性说明。</p>
+        </div>
+
+        <div id="result-content" class="result-grid" hidden>
+          <section class="panel result-hero">
+            <div>
+              <p class="eyebrow">Fitting starting point</p>
+              <h2>这不是身体评价，只是第一批试穿起点。</h2>
+            </div>
+            <p class="priority-label">优先试穿：</p>
+            <div id="range-chips" class="chips"></div>
+          </section>
+
+          <section class="panel">
+            <h2>试穿起点</h2>
+            <div id="starting-points" class="result-list"></div>
+          </section>
+
+          <section class="panel">
+            <h2>姊妹尺码</h2>
+            <div id="sister-sizes" class="result-list"></div>
+          </section>
+
+          <section class="panel">
+            <h2>风格方向</h2>
+            <div id="style-direction" class="tag-cloud"></div>
+          </section>
+
+          <section class="panel">
+            <h2>底盘 / 投射提示</h2>
+            <div id="arc-hints" class="result-list"></div>
+          </section>
+
+          <section class="panel" id="asymmetry-panel">
+            <h2>左右贴合提示</h2>
+            <div id="asymmetry-note" class="result-list"></div>
+          </section>
+
+          <section class="panel">
+            <h2>试穿时观察</h2>
+            <ul id="tryon-observations" class="check-list"></ul>
+          </section>
+
+          <section class="panel">
+            <h2>测量不确定性</h2>
+            <div id="uncertainty-notes" class="result-list"></div>
+          </section>
+
+          <section class="actions-panel">
+            <button class="primary-button" id="save-record" type="button">保存这次测量</button>
+            <button class="ghost-button" id="export-json-result" type="button">导出 JSON</button>
+            <button class="ghost-button" id="export-csv-result" type="button">导出 CSV</button>
+            <p id="save-message" class="form-message" role="status"></p>
+          </section>
+        </div>
+      </section>
+
+      <section id="issues" class="view" data-view="issues">
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>试穿问题辅助</h2>
+            <p>选择观察到的现象，下面会给出中性的排查方向。</p>
+          </div>
+          <div id="issue-checklist" class="issue-grid"></div>
+        </section>
+        <section class="panel">
+          <h2>建议</h2>
+          <div id="issue-suggestions" class="result-list">
+            <p>先选择一两个最明显的现象。</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="records" class="view" data-view="records">
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>本地记录</h2>
+            <p>记录只保存在当前浏览器/设备。更换设备、清理浏览器数据、卸载浏览器或使用无痕模式都可能导致记录丢失。建议定期导出 JSON 作为完整备份；CSV 适合表格查看。</p>
+          </div>
+          <div class="button-row">
+            <button class="ghost-button" id="export-json-all" type="button">导出全部 JSON</button>
+            <button class="ghost-button" id="export-csv-all" type="button">导出全部 CSV</button>
+            <label class="import-button">
+              导入 JSON
+              <input id="import-json" type="file" accept="application/json,.json">
+            </label>
+          </div>
+          <p id="records-message" class="form-message" role="status"></p>
+        </section>
+
+        <div id="records-list" class="records-list"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Moon Bra Fit Helper 是试穿导航工具，不是医疗工具，也不是身体价值判断。</p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

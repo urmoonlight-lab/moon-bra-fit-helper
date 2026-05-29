@@ -1,0 +1,24 @@
+{
+  "name": "Moon Bra Fit Helper",
+  "short_name": "Moon Fit",
+  "description": "一个温和的内衣尺码与试穿辅助工具。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf8fb",
+  "theme_color": "#f6eef8",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%23f6eef8'/%3E%3Ccircle cx='96' cy='96' r='54' fill='%23fffafd'/%3E%3Cpath d='M116 45a54 54 0 1 0 0 102a45 45 0 1 1 0-102Z' fill='%238f5d93'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%23f6eef8'/%3E%3Ccircle cx='256' cy='256' r='144' fill='%23fffafd'/%3E%3Cpath d='M309 121a144 144 0 1 0 0 270a120 120 0 1 1 0-270Z' fill='%238f5d93'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
