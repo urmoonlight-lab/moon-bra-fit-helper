@@ -43,9 +43,12 @@
             </div>
 
             <div class="fields two-col">
-              <label>
+              <label class="compact-date-field">
                 <span>日期</span>
-                <input id="date" name="date" type="date" required>
+                <span class="date-button-wrap">
+                  <input id="date" name="date" type="date" required aria-label="日期">
+                  <span id="date-button-text" class="date-button-text" aria-hidden="true">选择日期</span>
+                </span>
               </label>
               <label>
                 <span>体重（可选）</span>

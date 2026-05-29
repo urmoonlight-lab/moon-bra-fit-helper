@@ -265,6 +265,39 @@ textarea {
   outline: none;
 }
 
+.date-button-wrap {
+  position: relative;
+  display: inline-grid;
+  justify-self: start;
+}
+
+.compact-date-field input[type="date"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.date-button-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #ddd1df;
+  border-radius: var(--radius);
+  color: var(--accent-deep);
+  background: #fffafd;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.date-button-wrap:focus-within .date-button-text {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(143, 93, 147, 0.16);
+}
+
 textarea {
   resize: vertical;
 }

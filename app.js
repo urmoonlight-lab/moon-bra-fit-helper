@@ -53,6 +53,7 @@ function cacheElements() {
   els.formMessage = document.getElementById("form-message");
   els.saveMessage = document.getElementById("save-message");
   els.recordsMessage = document.getElementById("records-message");
+  els.dateButtonText = document.getElementById("date-button-text");
   els.emptyResult = document.getElementById("empty-result");
   els.resultContent = document.getElementById("result-content");
   els.rangeChips = document.getElementById("range-chips");
@@ -73,6 +74,7 @@ function setDefaultDate() {
   if (!els.date.value) {
     els.date.value = localDateString();
   }
+  updateDateButtonText();
 }
 
 function bindEvents() {
@@ -111,6 +113,7 @@ function bindEvents() {
   document.getElementById("export-json-all").addEventListener("click", () => exportAll("json"));
   document.getElementById("export-csv-all").addEventListener("click", () => exportAll("csv"));
   document.getElementById("import-json").addEventListener("change", importJsonFile);
+  els.date.addEventListener("change", updateDateButtonText);
 }
 
 function switchView(viewName) {
@@ -958,6 +961,11 @@ function localDateString(date = new Date()) {
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+function updateDateButtonText() {
+  if (!els.dateButtonText) return;
+  els.dateButtonText.textContent = els.date.value || "选择日期";
 }
 
 function escapeHtml(value) {
