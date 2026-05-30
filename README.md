@@ -5,6 +5,7 @@ Moon Bra Fit Helper is a local-first, mobile-friendly bra fitting helper for tra
 Tagline: Not a verdict. A fitting starting point.
 
 定位： 一个温和的内衣尺码与试穿辅助工具。
+*如果页面更新后仍显示旧内容，请刷新页面；如仍未更新，可清除该网站的浏览器数据后重新打开*
 
 Moon Bra Fit Helper is designed to turn measurements into practical try-on starting points, sister-size comparisons, style directions, and fit notes. It is meant to support calmer first try-on choices rather than produce a single fixed answer.
 
