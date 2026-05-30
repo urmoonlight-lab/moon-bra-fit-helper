@@ -1,4 +1,4 @@
-const CACHE_NAME = "moon-bra-fit-helper-v4";
+const CACHE_NAME = "moon-bra-fit-helper-v4.1";
 const ASSETS = [
   "./",
   "./index.html",
